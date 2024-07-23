@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<style>
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #343a40;
+        margin: 0;
+        padding: 0;
+    }
+    
+    h1 {
+        text-align: center;
+        color: #007bff;
+        font-size: 2.5rem;
+        margin-top: 20px;
+    }
+    
+    .service-section {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-item {
+        border-bottom: 1px solid #dee2e6;
+        padding: 20px 0;
+    }
+    
+    .service-item:last-child {
+        border-bottom: none;
+    }
+    
+    .service-item h2 {
+        color: #343a40;
+        font-size: 1.75rem;
+        margin-bottom: 10px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    
+    .service-item h2::after {
+        content: '';
+        width: 50px;
+        height: 3px;
+        background-color: #007bff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    
+    .service-item p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #6c757d;
+        margin: 0;
+    }
+    
+
+</style>
+
+    <link rel="stylesheet" href="{% static 'css/services.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>ShibaTech Services</h1>
+<div class="service-section">
+    <div class="service-item">
+        <h2>1. Product Warranty and Repairs</h2>
+        <p>At ShibaTech, we understand the importance of reliable electronics. That’s why we offer comprehensive product warranties and repair services. Our dedicated team of certified technicians is always ready to assist with any issues, ensuring your gadgets stay in perfect working condition.</p>
+    </div>
+    <div class="service-item">
+        <h2>2. 24/7 Customer Support</h2>
+        <p>Our customer support team is available around the clock to answer any questions or concerns you may have. Whether you need help with a product, an order, or just have a general inquiry, our knowledgeable support agents are here to assist you.</p>
+    </div>
+    <div class="service-item">
+        <h2>3. Free Shipping and Easy Returns</h2>
+        <p>Enjoy free shipping on all orders within the continental United States. We also offer a hassle-free return policy, so you can shop with confidence knowing that returning a product is as easy as purchasing it.</p>
+    </div>
+    <div class="service-item">
+        <h2>4. Expert Product Recommendations</h2>
+        <p>Not sure which product is right for you? Our team of experts is here to help. We offer personalized product recommendations based on your needs and preferences, ensuring you get the best electronics for your lifestyle.</p>
+    </div>
+</div>
+{% endblock %}

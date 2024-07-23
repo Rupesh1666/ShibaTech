@@ -1,0 +1,49 @@
+p{
+    text-align: center;
+}
+
+span{
+    text-align: center;
+}
+.category-details-container {
+    padding: 0px;
+    background-color: #f9f9f9; /* Light background for the section */
+}
+
+.category-details-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ensures proper spacing between items */
+    font-family: Arial, sans-serif;
+    margin-bottom: 1px; /* Adds space between rows */
+}
+.category-details-item {
+    flex: 1 1 calc(20% - 16px); /* Ensures 5 items per row, subtracts the gap */
+    box-sizing: border-box;
+    margin: 6px;
+    text-align: center;
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Inherits text color */
+    background-color: #ffffff; /* White background for items */
+    border-radius: 1px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(254, 252, 252, 0.1); /* Subtle shadow */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+    overflow: hidden; /* Ensures content stays within the border radius */
+}
+
+.category-details-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #ddd; /* Adds a border between the image and text */
+}
+.category-details-item span {
+    display: block;
+    font-size: 16px; /* Adjusts font size as needed */
+    font-weight: bold; /* Makes the text bold */
+    padding: 0px 0; /* Adds padding for the text */
+    color: #050101; /* Darker color for the text */
+}
+
+
+

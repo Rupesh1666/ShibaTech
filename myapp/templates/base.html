@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShibaTech</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dynam.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/new.css' %}"> {% endcomment %}
+    {% comment %} you can uncomment if something wrong {% endcomment %}
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    {% block extra_head %}{% endblock %}
+    <style>
+        
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="top-nav">
+            <a href="#" class="brand-logo">
+                <img src="{% static 'img/1.png' %}" alt="Shiba Logo">
+            </a>
+            <div class="search-container">
+                <form method="GET" action="{% url 'search' %}">
+                    <input type="text" name="q" placeholder="Search...">
+                </form>
+            </div>
+            <div class="nav-icons">
+                <a href="{% url 'stores' %}"><i class="fa fa-store"></i> Stores</a>
+                <a href="{% url 'register' %}"><i class="fa fa-user"></i> Account</a>
+                <a href="{% url 'cart_detail' %}"><i class="fa fa-shopping-cart"></i> Cart</a>
+            </div>
+        </div>
+    </nav>
+    <div class="bottom-nav">
+        <ul>
+            <li><a href="{% url 'dashboard' %}">Home</a></li>
+            <li><a href="{% url 'product_list' category_id=8 %}">Deals</a></li>
+            <li><a href="{% url 'Outlet' %}">Outlet</a></li>
+            <li><a href="{% url 'Services' %}">Services</a></li>
+        </ul>
+    </div>
+
+    <!-- Content block that child templates will override -->
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-top-item">
+                <img src="{% static 'img/customer-support.png' %}" alt="Support">
+                <a href="#">Visit our Support Center</a>
+            </div>
+            <div class="footer-top-item">
+                <img src="{% static 'img/parcel.png' %}" alt="Order Status">
+                <a href="#">Check your Order Status</a>
+            </div>
+            <div class="footer-top-item">
+                <img src="{% static 'img/fast.png' %}" alt="Shipping">
+                <a href="#">Shipping, Delivery & Store Pickup</a>
+            </div>
+            <div class="footer-top-item">
+                <img src="{% static 'img/return-box.png' %}" alt="Returns">
+                <a href="#">Returns & Exchanges</a>
+            </div>
+            <div class="footer-top-item">
+                <img src="{% static 'img/coin.png' %}" alt="Price Match">
+                <a href="#">Price Match Guarantee</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-section">
+                <h4>Order & Purchases</h4>
+                <ul>
+                    <li><a href="#">Check Order Status</a></li>
+                    <li><a href="#">Shipping, Delivery & Pickup</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Price Match Guarantee</a></li>
+                    <li><a href="#">Product Recalls</a></li>
+                    <li><a href="#">Trade-In Program</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support & Services</h4>
+                <ul>
+                    <li><a href="#">Visit our Support Center</a></li>
+                    <li><a href="#">Shop with an Expert</a></li>
+                    <li><a href="#">Schedule a Service</a></li>
+                    <li><a href="#">Manage an Appointment</a></li>
+                    <li><a href="#">Protection & Support Plans</a></li>
+                    <li><a href="#">Haul Away & Recycling</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Partnerships</h4>
+                <ul>
+                    <li><a href="#">Affiliate Program</a></li>
+                    <li><a href="#">Advertise with Us</a></li>
+                    <li><a href="#">Developers</a></li>
+                    <li><a href="#">Best Buy Health</a></li>
+                    <li><a href="#">Best Buy Education</a></li>
+                    <li><a href="#">Best Buy Business</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Payment Options</h4>
+                <ul>
+                    <li><a href="#">My Best Buy® Credit Card</a></li>
+                    <li><a href="#">Pay Your Bill at Citibank</a></li>
+                    <li><a href="#">Lease to Own</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Rewards & Membership</h4>
+                <ul>
+                    <li><a href="#">My Best Buy Memberships</a></li>
+                    <li><a href="#">View Points & Certificates</a></li>
+                    <li><a href="#">Member Offers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>About Best Buy</h4>
+                <ul>
+                    <li><a href="#">Corporate Information</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Corporate Responsibility</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-signup">
+            <div>
+                <a href="register">Sign in or Create Account</a>
+            </div>
+            <div class="newsletter">
+                <h4>Get the latest deals and more.</h4>
+                <input type="email" placeholder="Enter email address">
+                <a href="{% url 'register' %}" class="signup-tech">Sign UP</a>
+            </div>
+            <div class="social-media">
+                <a href="https://youtube.com/@technologywithrappy4062?si=BbJTSoNt36AGeCOD"><img src="{% static 'img/youtube.png' %}" alt="YouTube"></a>
+                <a href="https://www.instagram.com/rupes.h1111/"><img src="{% static 'img/instagram.png' %}" alt="Instagram"></a>
+                <a href="https://x.com/sard65205"><img src="{% static 'img/twitter.png' %}" alt="Twitter"></a>
+                <a href="https://github.com/Rupesh1666"><img src="{% static 'img/github.png' %}" alt="GibHib"></a>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-copyright" style="text-align: center;">&copy; 2024 ShibaCart. All rights reserved.</div>
+       
+   
+</body>
+</html>

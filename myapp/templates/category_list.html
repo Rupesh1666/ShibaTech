@@ -1,0 +1,10 @@
+<!-- category_list.html -->
+<h1>Shop deals by category</h1>
+{% for category in categories %}
+    <div>
+        <a href="{% url 'product_list' category.id %}">
+            <img src="{{ category.image.url }}" alt="{{ category.name }}">
+            <h2>{{ category.name }}</h2>
+        </a>
+    </div>
+{% endfor %}

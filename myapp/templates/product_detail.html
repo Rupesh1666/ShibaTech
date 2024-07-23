@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+    <!-- Additional head content specific to the page -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .product-detail-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            height: 250px;
+        }
+
+        .product-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .product-info h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .product-price, .product-color {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .add-to-cart-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="product-detail-container">
+    <div class="product-image">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    </div>
+    <div class="product-info">
+        <h1>{{ product.name }}</h1>
+        <p class="product-price">Price: ₹{{ product.price }}</p>
+        <p class="product-color">Color: {{ product.color }}</p>
+        <a href="{% url 'cart_add' product.id %}" class="add-to-cart-btn">Add to Cart</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load cart_filters %}
+
+{% block extra_head %}
+    <title>Checkout</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .checkout-container {
+            width: 80%;
+            margin: 40px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .checkout-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .checkout-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkout-item img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .checkout-item-details {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+
+        .checkout-item h2 {
+            font-size: 20px;
+            margin: 0 0 5px;
+            color: #333;
+        }
+
+        .checkout-item p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .total-amount {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #28a745;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+        {% for item in cart %}
+            <div class="checkout-item">
+                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                <div class="checkout-item-details">
+                    <h2>{{ item.product.name }}</h2>
+                    <p>Quantity: {{ item.quantity }}</p>
+                    <p>Total: ₹{{ item.total_price }}</p>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="total-amount">
+            Grand Total: ₹{{ cart|total_amount }}
+        </div>
+        <form id="razorpay-form">
+            <label for="address">Shipping Address:</label>
+            <input type="text" id="address" name="address" required>
+            <button type="button" id="pay-button">Pay with Razorpay</button>
+        </form>
+    </div>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        document.getElementById('pay-button').onclick = function(e) {
+            var amountInRupees = parseFloat("{{ cart|total_amount|floatformat:2 }}");
+            var amountInPaise = Math.round(amountInRupees * 100); // Convert rupees to paise
+
+            console.log("Amount in Rupees: " + amountInRupees); // Debugging
+            console.log("Amount in Paise: " + amountInPaise); // Debugging
+
+            var options = {
+                "key": "rzp_test_PYHOlXg9eXVB8z", // Your Razorpay key ID
+                "amount": amountInPaise, // Amount in paise
+                "currency": "INR",
+                "name": "ShibaCart",
+                "description": "Order Payment",
+                "handler": function (response){
+                    // Handle the response here
+                    alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+                },
+                "prefill": {
+                    "name": "",
+                    "email": "",
+                    "contact": ""
+                },                                       
+                "theme": {
+                    "color": "#3399cc"
+                }
+            };
+            var paymentObject = new Razorpay(options);
+            paymentObject.open();
+        };
+    </script>
+{% endblock %}

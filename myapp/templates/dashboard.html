@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+{% comment %} <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endcomment %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="sale-banner">
+        <div class="left-section">
+            <div class="end-sale">Ends Sunday.</div>
+            <h1>4th of July <span>Sale</span></h1>
+            <p style="font-size: 25px;">Save on major appliances and more.</p>
+            
+            <a href="{% url 'product_list' category_id=8 %}" class="shop-now">Shop Now</a>
+        </div>
+        <div class="right-section">
+            <div class="big-card">
+                <img src="{% static 'img/i55.jpg' %}" alt="Fridge">
+                <p style="font-size: 25px;"><b>Save up to 50% on select major appliances.</b></p>
+                <a href="{% url 'product_list' category_id=7 %}" class="shop-now">Shop now</a>
+            </div>
+            <div class="small-cards">
+                <div class="card">
+                    <img src="{% static 'img/i32.jpg' %}" alt="iPad">
+                    <p>Save 50% off iPad Air(Apple).</p>
+                    <a href="{% url 'product_list' category_id=17 %}" class="shop-now">Shop now</a>
+                </div>
+                <div class="card">
+                    <img src="{% static 'img/i2.jpg' %}" alt="Laptop">
+                    <p>Save 40% off on an HP Envy laptop.</p>
+                    <a href="{% url 'product_list' category_id=17 %}" class="shop-now">Shop now</a>
+                </div>
+                <div class="card">
+                    <img src="{% static 'img/i1.jpg' %}" alt="Smart TV">
+                    <p>Save 70% off on an LG TV.</p>
+                    <a href="{% url 'product_list' category_id=1 %}" class="shop-now">Shop now</a>
+                </div>
+                <div class="card">
+                    <img src="{% static 'img/i5.jpg' %}" alt="Refrigerator">
+                    <p>Save 50% off on a refrigerator.</p>
+                    <a href="{% url 'product_list' category_id=7 %}" class="shop-now">Shop now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h2 class="pick">Shop deals by category</h2>
+<div class="containerr">
+    <div class="row">
+        <a href="{% url 'product_list' category_id=1 %}" class="item"><img src="{% static 'img/Homn.jpg' %}" alt="Grocery"><span>TVs, Home Theatre, and Accessories </span></a>
+        <a href="{% url 'product_list' category_id=17 %}" class="item"><img src="{% static 'img/vdf.jpg' %}" alt="Mobiles"><span>Computers and Tablets</span></a>
+        <a href="{% url 'product_list' category_id=12 %}" class="item"><img src="{% static 'img/cel.jpg' %}" alt="Fashion"><span>Cell Phones</span></a>
+        <a href="{% url 'product_list' category_id=16 %}" class="item"><img src="{% static 'img/dfdf.jpg' %}" alt="Electronics"><span>Computer Monitors</span></a>
+        <a href="{% url 'product_list' category_id=16 %}" class="item"><img src="{% static 'img/we.jpg' %}" alt="Home & Furniture"><span>Computer Accessories</span></a>
+        <a href="{% url 'product_list' category_id=13 %}" class="item"><img src="{% static 'img/hed.jpg' %}" alt="Appliances"><span>Headphones and Portable Speakers</span></a>
+    </div>
+    <div class="row">
+        <a href="{% url 'product_list' category_id=7 %}" class="item"><img src="{% static 'img/app.jpg' %}" alt="Travel"><span>Major Appliances</span></a>
+        <a href="{% url 'product_list' category_id=15 %}" class="item"><img src="{% static 'img/smaff.jpg' %}" alt="Beauty, Toys & More"><span>Smart Home Appliances</span></a>
+        <a href="{% url 'product_list' category_id=14 %}" class="item"><img src="{% static 'img/7496.jpg' %}" alt="Two Wheelers"><span>Video Games, Consoles, and Accessories</span></a>
+        <a href="{% url 'product_list' category_id=11 %}" class="item"><img src="{% static 'img/wat.jpg' %}" alt="Grocery"><span>Wearable Technology</span></a>
+        <a href="{% url 'product_list' category_id=9 %}" class="item"><img src="{% static 'img/i99.jpg' %}" alt="Mobiles"><span>Camera</span></a>
+        <a href="{% url 'product_list' category_id=10 %}" class="item"><img src="{% static 'img/rd.jpg' %}" alt="Fashion"><span>Electric transportaion </span></a>
+    </div>
+    <p id="a11" style="text-align: center;font-size: 20px;"><b>Top Choices </b></p>
+    <div class="row">
+        <a href="{% url 'product_list' category_id=16 %}" class="item"><img src="{% static 'img/mon.jpg' %}" alt="Grocery"><span></span></a>
+        <a href="{% url 'product_list' category_id=17 %}" class="item"><img src="{% static 'img/tb.jpg' %}" alt="Mobiles"><span></span></a>
+        <a href="{% url 'product_list' category_id=12 %}" class="item"><img src="{% static 'img/42.jpeg' %}" alt="Fashion"><span></span></a>
+        <a href="{% url 'product_list' category_id=16 %}" class="item"><img src="{% static 'img/fdf.jpg' %}" alt="Grocery"><span></span></a>
+        <a href="{% url 'product_list' category_id=13 %}" class="item"><img src="{% static 'img/53.jpg' %}" alt="Mobiles"><span></span></a>
+        <a href="{% url 'product_list' category_id=14 %}" class="item"><img src="{% static 'img/gne.jpg' %}" alt="Fashion"><span></span></a>
+    </div>
+    <div class="row">
+        <a href="{% url 'product_list' category_id=9 %}" class="item"><img src="{% static 'img/camd.jpg' %}" alt="Grocery"><span></span></a>
+        <a href="{% url 'product_list' category_id=16 %}" class="item"><img src="{% static 'img/99.jpg' %}" alt="Mobiles"><span></span></a>
+        <a href="{% url 'product_list' category_id=7 %}" class="item"><img src="{% static 'img/fr.jpg' %}" alt="Fashion"><span></span></a>
+        <a href="{% url 'product_list' category_id=15 %}" class="item"><img src="{% static 'img/homet.jpg' %}" alt="Grocery"><span></span></a>
+        <a href="{% url 'product_list' category_id=7 %}" class="item"><img src="{% static 'img/i55.jpg' %}" alt="Mobiles"><span></span></a>
+        <a href="{% url 'product_list' category_id=15 %}" class="item"><img src="{% static 'img/ffdf.jpg' %}" alt="Fashion"><span></span></a>
+    </div>
+</div>
+<div class="TechnologyHub">
+    <div class="hub-header">
+        <h1>Latest and Greatest Tech</h1>
+        <p>The newest releases, all in one place.</p>
+        <a href="#" class="explore-tech">Explore all new tech</a>
+    </div>
+    <div class="hub-content">
+        <div class="tech-card">
+            <img src="{% static 'img/copy.jpg' %}" alt="Copilot + PC">
+            <h2>A new AI era begins.</h2>
+            <p>The fastest, most intelligent Windows PCs ever.</p>
+            <a href="{% url 'product_list' category_id=17 %}" class="shop-tech">Shop now</a>
+        </div>
+        <div class="tech-card">
+            <img src="{% static 'img/ip.jpg' %}" alt="Galaxy Unpacked">
+            <h2>Samsung Unpacked.</h2>
+            <p>Sign up for a 1000 coupon toward a new Samsung Galaxy smartphone.*</p>
+            <a href="{% url 'register' %}" class="signup-tech">Sign up now</a>
+        </div>
+    </div>
+</div>
+<div id="shiba-carousel" class="shiba-carousel">
+    <div class="shiba-carousel-inner">
+        <div class="shiba-carousel-item active">
+            <div class="shiba-card">
+                <a href="{% url 'product_list' category_id=9 %}">
+                    <img src="{% static 'img/i99.jpg' %}" alt="HP Envy">
+                    <p>Save 3000 on an HP Envy touch-screen laptop.</p>
+                </a>
+            </div>
+            <div class="shiba-card">
+                <a href="{% url 'product_list' category_id=13 %}">
+                    <img src="{% static 'img/i88.jpg' %}" alt="HP Envy">
+                    <p>Save 4000 on an HP Envy touch-screen laptop.</p>
+                </a>
+            </div>
+            <div class="shiba-card">
+                <a href="{% url 'product_list' category_id=12 %}">
+                    <img src="{% static 'img/i77.jpg' %}" alt="HP Envy">
+                    <p>Save 5000 on an HP Envy touch-screen laptop.</p>
+                </a>
+            </div>
+            <div class="shiba-card">
+                <a href="{% url 'product_list' category_id=12 %}">
+                    <img src="{% static 'img/i32.jpg' %}" alt="HP Envy">
+                    <p>Save 4000 on an HP Envy touch-screen laptop.</p>
+                </a>
+            </div>
+        </div>
+        <div class="shiba-carousel-item">
+            <div class="shiba-card">
+                <a href="{% url 'product_list' category_id=1 %}">
+                    <img src="{% static 'img/i1.jpg' %}" alt="HP Envy">
+                    <p>Save 5000 on an HP Envy touch-screen laptop.</p>
+                </a>
+            </div>
+            <div class="shiba-card">
+                <a href="{% url 'product_list' category_id=17 %}">
+                    <img src="{% static 'img/i2.jpg' %}" alt="HP Envy">
+                    <p>Save 6000 on an HP Envy touch-screen laptop.</p>
+                </a>
+            </div>
+            <div class="shiba-card">
+                <a href="{% url 'product_list' category_id=7 %}">
+                    <img src="{% static 'img/i5.jpg' %}" alt="HP Envy">
+                    <p>Save 2000 on an HP Envy touch-screen laptop.</p>
+                </a>
+            </div>
+            <div class="shiba-card">
+                <a href="{% url 'product_list' category_id=7 %}">
+                    <img src="{% static 'img/i55.jpg' %}" alt="HP Envy">
+                    <p>Save 8000 on an HP Envy touch-screen laptop.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="shiba-carousel-control-prev" data-slide="prev">&#9664;</div>
+    <div class="shiba-carousel-control-next" data-slide="next">&#9654;</div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const carousel = document.querySelector('.shiba-carousel-inner');
+        const items = document.querySelectorAll('.shiba-carousel-item');
+        const indicators = document.querySelectorAll('.shiba-carousel-indicators button');
+        const prev = document.querySelector('.shiba-carousel-control-prev');
+        const next = document.querySelector('.shiba-carousel-control-next');
+        let currentIndex = 0;
+
+        function updateCarousel(index) {
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+            indicators.forEach(ind => ind.classList.remove('active'));
+            indicators[index].classList.add('active');
+        }
+
+        indicators.forEach((ind, index) => {
+            ind.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel(index);
+            });
+        });
+
+        prev.addEventListener('click', () => {
+            if (currentIndex === 0) {
+                currentIndex = items.length - 1;
+            } else {
+                currentIndex = currentIndex - 1;
+            }
+            updateCarousel(currentIndex);
+        });
+
+        next.addEventListener('click', () => {
+            if (currentIndex === items.length - 1) {
+                currentIndex = 0;
+            } else {
+                currentIndex = currentIndex + 1;
+            }
+            updateCarousel(currentIndex);
+        });
+    });
+</script>
+{% endblock %}

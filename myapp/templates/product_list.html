@@ -1,0 +1,58 @@
+<!-- shiba5_product_list.html -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<style>
+    .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; /* Adjust as needed */
+        padding: 20px; /* Add padding around the product items */
+    }
+    .product-item {
+        width: 18%; /* Adjust width for 5 items in a row with some space */
+        margin: 10px; /* Adjust margin for space between items */
+        text-align: center;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: calc(25% - 40px);
+        box-sizing: border-box;
+    }
+    .product-item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+    .product-item h2 {
+        font-size: 1.2em;
+        margin: 10px 0;
+    }
+    .product-item a {
+        text-decoration: none;
+        color: inherit;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>{{ category.name }}</h1>
+<div class="product-list">
+    {% for product in products %}
+    <div class="product-item">
+        <a href="{% url 'product_detail' product_id=product.id %}">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <h2>{{ product.name }}</h2>
+            <p class="price">₹{{ product.price }}</p>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

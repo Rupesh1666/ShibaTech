@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+    <!-- Additional head content specific to the page -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            {% comment %} background-color: #f9f9f9;
+            padding: 20px;
+            margin: 0; {% endcomment %}
+        }
+        
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .title {
+            color: #333333;
+            margin-bottom: 30px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        
+        .section-title {
+            color: #444444;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .text {
+            color: #555555;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: left;
+        }
+        
+        .store-locations {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .store-locations li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .highlight {
+            color: #007BFF;
+            font-weight: bold;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="content-container">
+    <h1 class="title">ShibaTech Stores</h1>
+    <p class="text">
+        ShibaTech is a premier e-commerce platform specializing in electronics, offering a comprehensive range of high-quality gadgets and tech products. Established with a vision to revolutionize the online electronics shopping experience, ShibaTech has rapidly grown to become a trusted name in the industry, known for its exceptional product selection, competitive pricing, and unparalleled customer service.
+    </p>
+    
+    <h2 class="section-title">Store Locations</h2>
+    <p class="text">
+        <span class="highlight">India:</span>
+    </p>
+    <ul class="store-locations text">
+        <li>Maharashtra, Mumbai</li>
+        <li>Karnataka, Bengaluru (Bangalore)</li>
+        <li>Delhi, Gurugram</li>
+        <li>Telangana, Hyderabad</li>
+    </ul>
+    
+    <p class="text">
+        <span class="highlight">Europe:</span>
+    </p>
+    <ul class="store-locations text">
+        <li>London, United Kingdom</li>
+        <li>Berlin, Germany</li>
+        <li>Paris, France</li>
+        <li>Amsterdam, Netherlands</li>
+    </ul>
+    
+    <p class="text">
+        <span class="highlight">Asia-Pacific:</span>
+    </p>
+    <ul class="store-locations text">
+        <li>Tokyo, Japan</li>
+        <li>Seoul, South Korea</li>
+        <li>Sydney, Australia</li>
+        <li>Singapore</li>
+    </ul>
+</div>
+{% endblock %}
