@@ -22,6 +22,7 @@ urlpatterns = [
     path('stores', views.stores, name='stores'),
     # search
     path('search/', views.search, name='search'),
+    path("contact", views.contact, name='contact'),
     
     
     # added

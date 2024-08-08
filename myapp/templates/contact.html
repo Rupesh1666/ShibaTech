@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<style>
+    /* Container Styles */
+    .container-fluid {
+        padding: 0;
+        margin-bottom: 1.5rem;
+    }
+    .container {
+        margin-bottom: 1.5rem;
+        padding: 2rem;
+    }
+
+    /* Form Styles */
+    .form-group {
+        margin-bottom: 1.5rem; /* Increased margin for better spacing */
+    }
+
+    .form-group label {
+        display: block; /* Ensures labels are on their own line */
+        margin-bottom: 0.5rem; /* Space between label and input */
+        font-weight: bold; /* Makes labels bold for clarity */
+        text-align:center;
+    }
+
+    .form-control {
+        border-radius: 0.25rem;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+        width: 20%; /* Ensures inputs take up full width */
+        padding: 0.75rem; /* Adds padding inside the input fields */
+        margin-left:480px;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+        outline: none; /* Removes default outline on focus */
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 0.75rem 1.25rem; /* Adds padding to the button */
+        width: 10%;
+        margin-left: 550px;
+        
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+
+        
+    }
+
+    /* Responsive Image */
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Text Alignment */
+    .text-center {
+        text-align: center;
+    }
+
+    /* Form Heading */
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem; /* Increased margin for better spacing */
+    }
+
+    /* Additional Spacing */
+    .mb-3 {
+        margin-bottom: 1rem;
+    }
+
+    .py-4 {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .px-0 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    button{
+        
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-0 mb-3">
+    {% comment %} <img src="https://source.unsplash.com/1200x400/?phone,contact,numbers" class="d-block img-fluid" alt="..."> {% endcomment %}
+</div>
+<div class="container mb-3 py-4">
+    <h1 class="text-center">Contact Us</h1>
+    <form method="post" action="/contact">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone Number">
+        </div>
+        <div class="form-group">
+            <label for="desc">Tell me about what you want to contact me for...</label>
+            <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}
