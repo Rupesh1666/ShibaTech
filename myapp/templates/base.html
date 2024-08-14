@@ -15,8 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     {% block extra_head %}{% endblock %}
     <style>
-        
-        
+        /* Add any custom styles here */
     </style>
 </head>
 <body>
@@ -31,9 +30,19 @@
                 </form>
             </div>
             <div class="nav-icons">
-                <a href="{% url 'stores' %}"><i class="fa fa-store"></i> Stores</a>
-                <a href="{% url 'register' %}"><i class="fa fa-user"></i> Account</a>
-                <a href="{% url 'cart_detail' %}"><i class="fa fa-shopping-cart"></i> Cart</a>
+                {% if user.is_authenticated %}
+                <p style="font-size:1rem; color:white;">Welcome, {{ user.username }}!</p>
+    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" style="background-color: #0048d8; color: white; font-size:1rem ">
+            <i class="fa fa-sign-out-alt"></i> Logout
+        </button>
+    </form>
+    {% else %}
+    <a href="{% url 'stores' %}"><i class="fa fa-store"></i> Stores</a>
+    <a href="{% url 'register' %}"><i class="fa fa-user"></i> Account</a>
+    {% endif %}
+    <a href="{% url 'cart_detail' %}"><i class="fa fa-shopping-cart"></i> Cart</a>
             </div>
         </div>
     </nav>
@@ -55,23 +64,23 @@
         <div class="footer-top">
             <div class="footer-top-item">
                 <img src="{% static 'img/customer-support.png' %}" alt="Support">
-                <a href="/contact">Visit our Support Center</a>
+                <a href="/support">Visit our Support Center</a>
             </div>
             <div class="footer-top-item">
                 <img src="{% static 'img/parcel.png' %}" alt="Order Status">
-                <a href="#">Check your Order Status</a>
+                <p>Check your Order Status</p>
             </div>
             <div class="footer-top-item">
                 <img src="{% static 'img/fast.png' %}" alt="Shipping">
-                <a href="#">Shipping, Delivery & Store Pickup</a>
+                <p>Shipping, Delivery & Store Pickup</p>
             </div>
             <div class="footer-top-item">
                 <img src="{% static 'img/return-box.png' %}" alt="Returns">
-                <a href="#">Returns & Exchanges</a>
+                <p>Returns & Exchanges</p>
             </div>
             <div class="footer-top-item">
                 <img src="{% static 'img/coin.png' %}" alt="Price Match">
-                <a href="#">Price Match Guarantee</a>
+                <p>Price Match Guarantee</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -81,23 +90,15 @@
                     <li><a href="#">Check Order Status</a></li>
                     <li><a href="#">Shipping, Delivery & Pickup</a></li>
                     <li><a href="#">Returns & Exchanges</a></li>
-                    <li><a href="#">Price Match Guarantee</a></li>
-                    <li><a href="#">Product Recalls</a></li>
-                    <li><a href="#">Trade-In Program</a></li>
-                    <li><a href="#">Gift Cards</a></li>
+                 
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Support & Services</h4>
                 <ul>
-                    <li><a href="#">Visit our Support Center</a></li>
+                    <li><a href="/support">Visit our Support Center</a></li>
                     <li><a href="#">Shop with an Expert</a></li>
-                    <li><a href="#">Schedule a Service</a></li>
-                    <li><a href="#">Manage an Appointment</a></li>
-                    <li><a href="#">Protection & Support Plans</a></li>
-                    <li><a href="#">Haul Away & Recycling</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
+                    
             </div>
             <div class="footer-section">
                 <h4>Partnerships</h4>
@@ -105,9 +106,7 @@
                     <li><a href="#">Affiliate Program</a></li>
                     <li><a href="#">Advertise with Us</a></li>
                     <li><a href="#">Developers</a></li>
-                    <li><a href="#">Best Buy Health</a></li>
-                    <li><a href="#">Best Buy Education</a></li>
-                    <li><a href="#">Best Buy Business</a></li>
+                    
                 </ul>
             </div>
             <div class="footer-section">
@@ -138,7 +137,7 @@
         </div>
         <div class="footer-signup">
             <div>
-                <a href="register">Sign in or Create Account</a>
+                <a href="{% url 'login' %}">Sign in or Create Account</a>
             </div>
             <div class="newsletter">
                 <h4>Get the latest deals and more.</h4>

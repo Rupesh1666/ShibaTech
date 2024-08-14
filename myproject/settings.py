@@ -127,12 +127,12 @@ CART_SESSION_ID = 'cart'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = 'dashboard'
-
+LOGOUT_REDIRECT_URL = '/'
 
 #razopry
 # settings.py
 
-
+APPEND_SLASH = False
 
 RAZORPAY_TEST_KEY_ID = 'rzp_test_PYHOlXg9eXVB8z'
 RAZORPAY_TEST_KEY_SECRET = '7b5fYf0AdU6R4WA69wbLkU31'
@@ -141,3 +141,18 @@ RAZORPAY_PAYMENT_SETTINGS = {
     'key_id': RAZORPAY_TEST_KEY_ID,
     'key_secret': RAZORPAY_TEST_KEY_SECRET,
 }
+
+
+
+
+#email
+
+
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'billionareman1st@gmail.com'
+EMAIL_HOST_PASSWORD = 'uddy jpxg wfjl cppw'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

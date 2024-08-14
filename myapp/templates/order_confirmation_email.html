@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        p {
+            font-size: 16px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Order Confirmation</h1>
+        <p>Dear, Rsardar {{ recipient_name }},</p>
+        <p>Thank you for your order! We have received your order and are currently processing it. Here are the details:</p>
+        <ul>
+            <li><strong>Order ID:06</strong> {{ order_id }}</li>
+            <li><strong>Product Name: ADDED </strong> {{ product_name }}</li>
+            <li><strong>Quantity: 02</strong> {{ quantity }}</li>
+            <li><strong>Total Price: XXXXX</strong> ${{ total_price }}</li>
+        </ul>
+        <p>If you have any questions about your order, please feel free to contact us.</p>
+        <p>Thank you for shopping with us!</p>
+        <p class="footer">Best regards,<br>SHIBATECH</p>
+    </div>
+</body>
+</html>
